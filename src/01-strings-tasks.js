@@ -132,8 +132,10 @@ function repeatString(value, count) {
  *   'I like legends', 'end' => 'I like legs',
  *   'ABABAB','BA' => 'ABAB'
  */
-function removeFirstOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+function removeFirstOccurrences(str, value) {
+  const startIndex = str.indexOf(value);
+  const { length } = value;
+  return str.slice(0, startIndex) + str.slice(startIndex + length);
 }
 
 /**
@@ -147,8 +149,17 @@ function removeFirstOccurrences(/* str, value */) {
  *   '<span>' => 'span'
  *   '<a>' => 'a'
  */
-function unbracketTag(/* str */) {
-  throw new Error('Not implemented');
+function unbracketTag(str) {
+  const answ = str.split('');
+  let result = '';
+  for (let i = 0; i < answ.length; i += 1) {
+    if (answ[i] === '>' || answ[i] === '<') {
+      result += '';
+    } else {
+      result += answ[i];
+    }
+  }
+  return result;
 }
 
 
