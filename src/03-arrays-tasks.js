@@ -85,8 +85,15 @@ function getArrayOfPositives(arr) {
  *    [ 1, 2, 3, 4, 5 ] => []
  *    [ 'cat, 'dog', 'raccoon' ] => [ 'cat', 'dog', 'raccoon' ]
  */
-function getArrayOfStrings(/* arr */) {
-  throw new Error('Not implemented');
+function getArrayOfStrings(arr) {
+  function callback(acc, val) {
+    if (typeof val === 'string') {
+      acc.push(val);
+    }
+    return acc;
+  }
+  const asnw = arr.reduce(callback, []);
+  return asnw;
 }
 
 /**
