@@ -170,8 +170,20 @@ function insertItem(arr, item, index) {
  *    [ 1, 3, 4, 5 ], 2 => [ 1, 3 ]
  *    [ 'a', 'b', 'c', 'd'], 3  => [ 'a', 'b', 'c' ]
  */
-function getHead(/* arr, n */) {
-  throw new Error('Not implemented');
+function getHead(arr, n) {
+  let i = 0;
+  function callback(val) {
+    if (i === n) {
+      return;
+    }
+    // eslint-disable-next-line no-plusplus
+    i++;
+    // eslint-disable-next-line consistent-return
+    return val;
+  }
+  let answer = arr.map(callback);
+  answer = answer.filter((val) => val !== undefined);
+  return answer;
 }
 
 
