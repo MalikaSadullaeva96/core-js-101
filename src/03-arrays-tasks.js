@@ -197,10 +197,20 @@ function getHead(arr, n) {
  *    [ 1, 3, 4, 5 ], 2  => [ 4, 5 ]
  *    [ 'a', 'b', 'c', 'd'], 3  => [ 'b', 'c', 'd' ]
  */
-function getTail(/* arr, n */) {
-  throw new Error('Not implemented');
+function getTail(arr, n) {
+  // eslint-disable-next-line no-param-reassign
+  arr = arr.reverse();
+  function callback(val, idx) {
+    if (idx >= n) {
+      return;
+    }
+    // eslint-disable-next-line consistent-return
+    return val;
+  }
+  let answer = arr.map(callback);
+  answer = answer.filter((val) => val !== undefined);
+  return answer.reverse();
 }
-
 
 /**
  * Returns CSV representation of two-dimensional numeric array.
